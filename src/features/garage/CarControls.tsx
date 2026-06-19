@@ -15,7 +15,9 @@ const CarControls = (props: CarControlsProps) => {
   const inMotion = runState === 'starting' || runState === 'driving';
   const manageDisabled = isRacing || inMotion;
   const startDisabled = isRacing || runState !== 'idle';
-  const stopDisabled = isRacing || runState === 'idle';
+  // The car is still at its initial place while 'starting', so stop stays
+  // disabled until it is actually moving (also prevents cancelling mid-request).
+  const stopDisabled = isRacing || runState === 'idle' || runState === 'starting';
 
   return (
     <div className="car__controls">

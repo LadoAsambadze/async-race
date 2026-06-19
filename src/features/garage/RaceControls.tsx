@@ -17,9 +17,16 @@ const RaceControls = ({ hasCars, onStartRace, onResetRace }: RaceControlsProps) 
 
   const generateCars = async () => {
     setIsGenerating(true);
-    const batch = Array.from({ length: RANDOM_CARS_BATCH }, () => createCar(randomCar()).unwrap());
-    await Promise.all(batch);
-    setIsGenerating(false);
+    try {
+      const batch = Array.from({ length: RANDOM_CARS_BATCH }, () =>
+        createCar(randomCar()).unwrap(),
+      );
+      await Promise.all(batch);
+    } catch {
+      // Ignore individual failures; the list refreshes with whatever succeeded.
+    } finally {
+      setIsGenerating(false);
+    }
   };
 
   return (

@@ -11,8 +11,12 @@ const CreateCarForm = () => {
   const [createCar, { isLoading }] = useCreateCarMutation();
 
   const handleSubmit = async () => {
-    await createCar({ name: name.trim(), color }).unwrap();
-    dispatch(resetCreateForm());
+    try {
+      await createCar({ name: name.trim(), color }).unwrap();
+      dispatch(resetCreateForm());
+    } catch {
+      // Keep the entered values if the request fails.
+    }
   };
 
   return (

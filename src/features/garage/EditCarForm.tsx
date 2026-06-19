@@ -12,8 +12,12 @@ const EditCarForm = () => {
 
   const handleSubmit = async () => {
     if (edit.id === null) return;
-    await updateCar({ id: edit.id, name: edit.name.trim(), color: edit.color }).unwrap();
-    dispatch(stopEditing());
+    try {
+      await updateCar({ id: edit.id, name: edit.name.trim(), color: edit.color }).unwrap();
+      dispatch(stopEditing());
+    } catch {
+      // Keep the edit form open if the request fails.
+    }
   };
 
   return (

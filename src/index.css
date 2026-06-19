@@ -1,0 +1,305 @@
+:root {
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --surface-2: #334155;
+  --border: #475569;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --primary: #3b82f6;
+  --primary-dark: #2563eb;
+  --start: #22c55e;
+  --stop: #ef4444;
+  --radius: 8px;
+  --gap: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:
+    'Segoe UI',
+    system-ui,
+    -apple-system,
+    sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* ---------- Layout ---------- */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap);
+  padding: 14px 16px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav__brand {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.nav__links {
+  display: flex;
+  gap: 8px;
+}
+
+.nav__link {
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  color: var(--text);
+  text-decoration: none;
+  background: var(--surface-2);
+}
+
+.nav__link--active {
+  background: var(--primary);
+  color: #fff;
+}
+
+.nav__link--disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.view__title {
+  margin: 8px 0 16px;
+}
+
+/* ---------- Panels & forms ---------- */
+.panel,
+.race-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+  margin-bottom: 16px;
+}
+
+.panel {
+  flex-direction: column;
+}
+
+.car-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.car-form__name {
+  flex: 1 1 160px;
+  min-width: 120px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+}
+
+.car-form__color {
+  width: 44px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  cursor: pointer;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  color: var(--text);
+  cursor: pointer;
+  transition: filter 0.15s ease;
+}
+
+.btn:hover:not(:disabled) {
+  filter: brightness(1.15);
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn--primary {
+  background: var(--primary);
+  border-color: var(--primary-dark);
+  color: #fff;
+}
+
+.btn--sm {
+  padding: 5px 10px;
+  font-size: 0.85rem;
+}
+
+.btn--start {
+  background: var(--start);
+  color: #052e16;
+  font-weight: 700;
+}
+
+.btn--stop {
+  background: var(--stop);
+  color: #450a0a;
+  font-weight: 700;
+}
+
+/* ---------- Garage list & track ---------- */
+.garage-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.car {
+  padding: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.car__controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.car__name {
+  font-weight: 600;
+}
+
+.track {
+  position: relative;
+  height: 48px;
+  margin-top: 6px;
+  border-bottom: 2px dashed var(--border);
+  overflow: hidden;
+}
+
+.track__car {
+  position: absolute;
+  left: 0;
+  bottom: 4px;
+  will-change: transform;
+}
+
+.track__flag {
+  position: absolute;
+  right: 0;
+  bottom: 6px;
+  font-size: 1.5rem;
+}
+
+/* ---------- Pagination ---------- */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.muted {
+  color: var(--muted);
+  text-align: center;
+  padding: 24px 0;
+}
+
+/* ---------- Winners table ---------- */
+.winners-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.winners-table th,
+.winners-table td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.winners-table th {
+  background: var(--surface-2);
+}
+
+.th-sort {
+  background: none;
+  border: none;
+  color: var(--text);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* ---------- Winner banner ---------- */
+.banner {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+}
+
+.banner__card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px 32px;
+  text-align: center;
+  max-width: 90vw;
+}
+
+.banner__title {
+  margin: 0 0 8px;
+}
+
+/* ---------- Responsive (down to 500px and below) ---------- */
+@media (max-width: 500px) {
+  .container {
+    padding: 10px;
+  }
+
+  .nav {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .track {
+    height: 40px;
+  }
+
+  .winners-table th,
+  .winners-table td {
+    padding: 8px 6px;
+    font-size: 0.85rem;
+  }
+}

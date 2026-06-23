@@ -63,8 +63,7 @@ The API base URL defaults to `http://localhost:3000` and can be overridden with 
 `vite.config.ts` uses `base: './'` (relative asset paths) and the app uses `HashRouter`, so the same `dist/` build works on GitHub Pages, Netlify, Vercel and Cloudflare Pages with no extra config.
 
 - **Vercel (used here):** import the repo — Vite is auto-detected. Build command `npm run build`, output directory `dist`. **Leave `VITE_API_BASE_URL` unset** so the app keeps targeting the reviewer's local `http://localhost:3000` backend.
-- **GitHub Pages:** a workflow at `.github/workflows/deploy.yml` builds and deploys on every push to `main`. Enable Pages → Source: *GitHub Actions*.
-- **Netlify:** build command `npm run build`, publish directory `dist` (or drag-and-drop the `dist/` folder).
+- **Netlify / Cloudflare Pages / GitHub Pages:** build command `npm run build`, publish directory `dist` (the relative-base build works as-is on any static host).
 
 After deploying, paste the live URL at the top of this file.
 

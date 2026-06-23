@@ -369,6 +369,18 @@ body {
   will-change: transform;
 }
 
+.track__car--broken {
+  opacity: 0.45;
+  filter: grayscale(0.7);
+}
+
+.track__broken {
+  position: absolute;
+  top: -10px;
+  right: -8px;
+  font-size: 1.1rem;
+}
+
 /* ---------- Pagination ---------- */
 .pagination {
   display: flex;

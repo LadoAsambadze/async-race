@@ -38,7 +38,13 @@ const CarItem = ({ car, register, unregister, onRemove }: CarItemProps) => {
           stop().catch(() => {});
         }}
       />
-      <CarTrack name={car.name} color={car.color} trackRef={trackRef} carRef={carRef} />
+      <CarTrack
+        name={car.name}
+        color={car.color}
+        broken={runState === 'broken'}
+        trackRef={trackRef}
+        carRef={carRef}
+      />
     </div>
   );
 };

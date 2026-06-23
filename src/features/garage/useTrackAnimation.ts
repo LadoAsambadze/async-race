@@ -9,7 +9,6 @@ interface TrackAnimation {
   reset: () => void;
 }
 
-// Wires the pure animation helpers to a single car's DOM refs and lifecycle.
 export const useTrackAnimation = (): TrackAnimation => {
   const trackRef = useRef<HTMLDivElement>(null);
   const carRef = useRef<HTMLDivElement>(null);

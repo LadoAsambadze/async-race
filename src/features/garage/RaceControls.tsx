@@ -23,7 +23,6 @@ const RaceControls = ({ hasCars, onStartRace, onResetRace }: RaceControlsProps) 
       );
       await Promise.all(batch);
     } catch {
-      // Ignore individual failures; the list refreshes with whatever succeeded.
     } finally {
       setIsGenerating(false);
     }

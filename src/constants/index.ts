@@ -1,5 +1,3 @@
-// Centralised configuration values so there are no "magic numbers" in the code.
-
 export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:3000';
 
 export const CARS_PER_PAGE = 7;
@@ -17,10 +15,8 @@ export const PERCENT_MAX = 100;
 export const MS_PER_SECOND = 1000;
 export const TIME_DECIMALS = 2;
 
-// HTTP status returned by the mock when an engine "breaks" during drive mode.
 export const ENGINE_BROKE_STATUS = 500;
 
-// Two-part random names: at least 10 options per part (requirement).
 export const CAR_BRANDS = [
   'Tesla',
   'Ford',

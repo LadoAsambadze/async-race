@@ -20,7 +20,6 @@ export const useGarage = () => {
   const totalCount = data?.totalCount ?? 0;
   const pageCount = totalPages(totalCount, CARS_PER_PAGE);
 
-  // Clamp the page if cars were removed and it no longer exists.
   useEffect(() => {
     if (page > pageCount) dispatch(setPage(pageCount));
   }, [page, pageCount, dispatch]);
@@ -28,12 +27,10 @@ export const useGarage = () => {
   const removeCar = useCallback(
     async (id: number) => {
       await deleteCar(id).unwrap();
-      // Remove from winners too; ignore 404 when the car never won.
       await deleteWinner(id)
         .unwrap()
         .catch(() => {});
       if (editId === id) dispatch(stopEditing());
-      // If the last car on a page is removed, step back to the previous page.
       if (cars.length === 1 && page > FIRST_PAGE) dispatch(setPage(page - 1));
     },
     [cars.length, deleteCar, deleteWinner, dispatch, editId, page],

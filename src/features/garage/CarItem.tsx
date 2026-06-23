@@ -18,7 +18,6 @@ const CarItem = ({ car, register, unregister, onRemove }: CarItemProps) => {
   const isRacing = useAppSelector((state) => state.race.isRacing);
   const { runState, trackRef, carRef, start, stop } = useEngine(car);
 
-  // Expose this car's engine controls to the race orchestrator.
   useEffect(() => {
     register({ id: car.id, start, stop });
     return () => unregister(car.id);

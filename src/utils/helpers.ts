@@ -1,7 +1,6 @@
 import { MS_PER_SECOND, TIME_DECIMALS } from '../constants';
 import type { RaceResult } from '../types';
 
-// Convert engine distance/velocity into a duration in milliseconds.
 export const durationFromEngine = (distance: number, velocity: number): number =>
   distance / velocity;
 
@@ -11,8 +10,6 @@ export const msToSeconds = (ms: number): number =>
 export const totalPages = (totalCount: number, perPage: number): number =>
   Math.max(1, Math.ceil(totalCount / perPage));
 
-// Resolve the first promise that fulfils; reject only when every promise rejects.
-// Used to find the race winner (the first car to reach the finish line).
 export const firstToFinish = (promises: Promise<RaceResult>[]): Promise<RaceResult> =>
   new Promise<RaceResult>((resolve, reject) => {
     let rejected = 0;

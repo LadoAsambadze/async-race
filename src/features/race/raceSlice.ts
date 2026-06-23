@@ -3,7 +3,6 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import type { RaceResult } from '../../types';
 
 interface RaceState {
-  // True from "Start race" until "Reset"; used to block conflicting actions.
   isRacing: boolean;
   winner: RaceResult | null;
 }

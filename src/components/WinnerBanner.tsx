@@ -1,7 +1,6 @@
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { dismissWinner } from '../features/race/raceSlice';
 
-// Modal banner shown when a race produces a winner.
 const WinnerBanner = () => {
   const winner = useAppSelector((state) => state.race.winner);
   const dispatch = useAppDispatch();

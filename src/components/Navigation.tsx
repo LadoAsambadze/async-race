@@ -2,8 +2,6 @@ import { NavLink } from 'react-router-dom';
 import { ROUTES } from '../constants';
 import { useAppSelector } from '../app/hooks';
 
-// Nav links are disabled mid-race so a race can't be abandoned half-way
-// (one of the "handle actions during the race" strategies).
 const Navigation = () => {
   const isRacing = useAppSelector((state) => state.race.isRacing);
 

@@ -33,7 +33,6 @@ button {
   font-family: inherit;
 }
 
-/* ---------- Layout ---------- */
 .container {
   max-width: 960px;
   margin: 0 auto;
@@ -83,7 +82,6 @@ button {
   margin: 8px 0 16px;
 }
 
-/* ---------- Panels & forms ---------- */
 .panel,
 .race-controls {
   display: flex;
@@ -123,7 +121,6 @@ button {
   cursor: pointer;
 }
 
-/* ---------- Buttons ---------- */
 .btn {
   padding: 8px 14px;
   border: 1px solid var(--border);
@@ -166,7 +163,6 @@ button {
   font-weight: 700;
 }
 
-/* ---------- Garage list & track ---------- */
 .garage-list {
   display: flex;
   flex-direction: column;
@@ -213,7 +209,6 @@ button {
   font-size: 1.5rem;
 }
 
-/* ---------- Pagination ---------- */
 .pagination {
   display: flex;
   align-items: center;
@@ -228,7 +223,6 @@ button {
   padding: 24px 0;
 }
 
-/* ---------- Winners table ---------- */
 .winners-table {
   width: 100%;
   border-collapse: collapse;
@@ -258,7 +252,6 @@ button {
   padding: 0;
 }
 
-/* ---------- Winner banner ---------- */
 .banner {
   position: fixed;
   inset: 0;
@@ -282,7 +275,6 @@ button {
   margin: 0 0 8px;
 }
 
-/* ---------- Responsive (down to 500px and below) ---------- */
 @media (max-width: 500px) {
   .container {
     padding: 10px;

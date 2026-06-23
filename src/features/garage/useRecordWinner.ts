@@ -6,8 +6,6 @@ import {
 } from '../../api/winnersApi';
 import type { RaceResult } from '../../types';
 
-// Persists a race winner: increment wins and keep the best (smallest) time,
-// or create a fresh record when this car has never won before.
 export const useRecordWinner = () => {
   const [getWinner] = useLazyGetWinnerQuery();
   const [createWinner] = useCreateWinnerMutation();

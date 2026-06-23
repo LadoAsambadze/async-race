@@ -6,7 +6,6 @@ interface CarIconProps {
 const DEFAULT_SIZE = 48;
 const ASPECT_RATIO = 0.45;
 
-// Simple car silhouette; `fill` is driven by the car's selected colour.
 const CarIcon = ({ color, size = DEFAULT_SIZE }: CarIconProps) => (
   <svg
     width={size}

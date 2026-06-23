@@ -12,8 +12,6 @@ interface UseEngineResult {
   stop: () => Promise<void>;
 }
 
-// Drives a single car's engine lifecycle: request velocity, animate, then
-// confirm drive mode (freezing the car if its engine breaks with a 500).
 export const useEngine = (car: Car): UseEngineResult => {
   const [runState, setRunState] = useState<CarRunState>('idle');
   const { trackRef, carRef, run, freeze, reset } = useTrackAnimation();

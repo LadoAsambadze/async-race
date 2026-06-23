@@ -7,7 +7,6 @@ interface CarTrackProps {
   carRef: RefObject<HTMLDivElement>;
 }
 
-// `trackRef` is the full-width lane; `carRef` is the element that moves.
 const CarTrack = ({ color, trackRef, carRef }: CarTrackProps) => (
   <div className="track" ref={trackRef}>
     <div className="track__car" ref={carRef}>

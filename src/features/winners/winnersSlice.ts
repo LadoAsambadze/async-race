@@ -22,7 +22,6 @@ const winnersSlice = createSlice({
     setPage: (state, action: PayloadAction<number>) => {
       state.page = action.payload;
     },
-    // Clicking a column header sorts by it; clicking again flips the direction.
     toggleSort: (state, action: PayloadAction<WinnersSortField>) => {
       if (state.sort === action.payload) {
         state.order = state.order === 'asc' ? 'desc' : 'asc';

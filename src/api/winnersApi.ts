@@ -21,7 +21,6 @@ interface GetWinnersArgs {
   order: SortOrder;
 }
 
-// Winners only store { id, wins, time }; fetch each car to add name + colour.
 const enrichWinners = async (winners: Winner[], fetchCar: CarFetcher): Promise<WinnerView[]> =>
   Promise.all(
     winners.map(async (winner) => {

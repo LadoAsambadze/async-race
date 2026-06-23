@@ -31,7 +31,6 @@ export const garageApi = baseApi.injectEndpoints({
     }),
     updateCar: builder.mutation<Car, Car>({
       query: ({ id, ...body }) => ({ url: `/garage/${id}`, method: 'PUT', body }),
-      // Name/colour also appears in the winners table, so refresh both.
       invalidatesTags: ['Car', 'Winner'],
     }),
     deleteCar: builder.mutation<void, number>({

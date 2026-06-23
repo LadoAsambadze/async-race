@@ -1,7 +1,5 @@
 import type { MutableRefObject } from 'react';
 
-// Place the car along its lane based on progress (0..1). Reads the live lane
-// width each call, which is what keeps the animation responsive on resize.
 export const positionCar = (
   lane: HTMLDivElement | null,
   carEl: HTMLDivElement | null,
@@ -19,7 +17,6 @@ interface AnimationRefs {
   onFrame: (progress: number) => void;
 }
 
-// Animate over `duration` ms; resolves at the finish line, rejects if frozen.
 export const animateCar = (duration: number, refs: AnimationRefs): Promise<void> =>
   new Promise<void>((resolve, reject) => {
     const { rafRef, progressRef, cancelledRef, onFrame } = refs;

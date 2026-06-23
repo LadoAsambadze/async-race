@@ -14,9 +14,7 @@ const CreateCarForm = () => {
     try {
       await createCar({ name: name.trim(), color }).unwrap();
       dispatch(resetCreateForm());
-    } catch {
-      // Keep the entered values if the request fails.
-    }
+    } catch {}
   };
 
   return (

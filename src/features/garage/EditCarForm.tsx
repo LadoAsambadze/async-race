@@ -15,9 +15,7 @@ const EditCarForm = () => {
     try {
       await updateCar({ id: edit.id, name: edit.name.trim(), color: edit.color }).unwrap();
       dispatch(stopEditing());
-    } catch {
-      // Keep the edit form open if the request fails.
-    }
+    } catch {}
   };
 
   return (

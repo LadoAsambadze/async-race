@@ -5,8 +5,6 @@ import { useRecordWinner } from './useRecordWinner';
 import { firstToFinish } from '../../utils/helpers';
 import type { CarHandle } from '../../types';
 
-// Coordinates the whole-page race: collects each car's imperative handle,
-// starts them together, then announces and persists the first finisher.
 export const useRace = () => {
   const dispatch = useAppDispatch();
   const handles = useRef<Map<number, CarHandle>>(new Map());
@@ -27,9 +25,7 @@ export const useRace = () => {
       const winner = await firstToFinish(promises);
       dispatch(raceFinished(winner));
       await recordWinner(winner);
-    } catch {
-      // Every car broke down — there is no winner to announce.
-    }
+    } catch {}
   }, [dispatch, recordWinner]);
 
   const resetRace = useCallback(async () => {

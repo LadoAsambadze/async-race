@@ -38,10 +38,7 @@ const CarItem = ({ car, register, unregister, onRemove }: CarItemProps) => {
           stop().catch(() => {});
         }}
       />
-      <span className="car__name" style={{ color: car.color }}>
-        {car.name}
-      </span>
-      <CarTrack color={car.color} trackRef={trackRef} carRef={carRef} />
+      <CarTrack name={car.name} color={car.color} trackRef={trackRef} carRef={carRef} />
     </div>
   );
 };

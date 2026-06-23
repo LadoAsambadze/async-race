@@ -9,9 +9,8 @@ const Navigation = () => {
     `nav__link${isActive ? ' nav__link--active' : ''}${isRacing ? ' nav__link--disabled' : ''}`;
 
   return (
-    <nav className="nav">
-      <h1 className="nav__brand">🏁 Async Race</h1>
-      <div className="nav__links">
+    <header className="topbar">
+      <nav className="nav">
         <NavLink
           to={ROUTES.GARAGE}
           className={({ isActive }) => linkClass(isActive)}
@@ -21,13 +20,20 @@ const Navigation = () => {
         </NavLink>
         <NavLink
           to={ROUTES.WINNERS}
-          className={({ isActive }) => linkClass(isActive)}
+          className={({ isActive }) => `${linkClass(isActive)} nav__link--pink`}
           tabIndex={isRacing ? -1 : undefined}
         >
           Winners
         </NavLink>
-      </div>
-    </nav>
+      </nav>
+      <h1 className="logo">
+        <span className="logo__line">Async</span>
+        <span className="logo__line logo__line--pink">Race</span>
+      </h1>
+      <span className="chevrons" aria-hidden="true">
+        &raquo;&raquo;&raquo;&raquo;&raquo;
+      </span>
+    </header>
   );
 };
 

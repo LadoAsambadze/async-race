@@ -37,7 +37,7 @@ const CarForm = (props: CarFormProps) => {
       <input
         type="text"
         className="car-form__name"
-        placeholder="Car name"
+        placeholder="Type car brand"
         value={name}
         maxLength={CAR_NAME_MAX_LENGTH}
         disabled={disabled}

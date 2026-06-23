@@ -1,6 +1,7 @@
 import CreateCarForm from './CreateCarForm';
 import EditCarForm from './EditCarForm';
 import RaceControls from './RaceControls';
+import GenerateCarsButton from './GenerateCarsButton';
 import GarageList from './GarageList';
 import Pagination from '../../components/Pagination';
 import { useGarage } from './useGarage';
@@ -15,12 +16,12 @@ const GarageView = () => {
     <section className="view">
       <h2 className="view__title">Garage ({totalCount})</h2>
 
-      <div className="panel">
+      <div className="control-bar">
+        <RaceControls hasCars={cars.length > 0} onStartRace={startRace} onResetRace={resetRace} />
         <CreateCarForm />
         <EditCarForm />
+        <GenerateCarsButton />
       </div>
-
-      <RaceControls hasCars={cars.length > 0} onStartRace={startRace} onResetRace={resetRace} />
 
       <GarageList
         cars={cars}

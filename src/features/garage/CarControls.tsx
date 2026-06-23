@@ -1,3 +1,4 @@
+import ControlButton from './ControlButton';
 import type { CarRunState } from '../../types';
 
 interface CarControlsProps {
@@ -12,37 +13,38 @@ interface CarControlsProps {
 
 const CarControls = (props: CarControlsProps) => {
   const { name, runState, isRacing, onSelect, onRemove, onStart, onStop } = props;
-  const inMotion = runState === 'starting' || runState === 'driving';
-  const manageDisabled = isRacing || inMotion;
+  const manageDisabled = isRacing || runState === 'starting' || runState === 'driving';
   const startDisabled = isRacing || runState !== 'idle';
   const stopDisabled = isRacing || runState === 'idle' || runState === 'starting';
 
   return (
     <div className="car__controls">
-      <button type="button" className="btn btn--sm" disabled={manageDisabled} onClick={onSelect}>
-        Select
-      </button>
-      <button type="button" className="btn btn--sm" disabled={manageDisabled} onClick={onRemove}>
-        Remove
-      </button>
-      <button
-        type="button"
-        className="btn btn--sm btn--start"
+      <ControlButton
+        label="Select"
+        className="btn btn--sm btn--cyan"
+        disabled={manageDisabled}
+        onClick={onSelect}
+      />
+      <ControlButton
+        label="A"
+        className="btn btn--ab btn--start"
         disabled={startDisabled}
         onClick={onStart}
-        aria-label={`Start engine of ${name}`}
-      >
-        A
-      </button>
-      <button
-        type="button"
-        className="btn btn--sm btn--stop"
+        ariaLabel={`Start engine of ${name}`}
+      />
+      <ControlButton
+        label="Remove"
+        className="btn btn--sm btn--pink"
+        disabled={manageDisabled}
+        onClick={onRemove}
+      />
+      <ControlButton
+        label="B"
+        className="btn btn--ab btn--stop"
         disabled={stopDisabled}
         onClick={onStop}
-        aria-label={`Stop engine of ${name}`}
-      >
-        B
-      </button>
+        ariaLabel={`Stop engine of ${name}`}
+      />
     </div>
   );
 };

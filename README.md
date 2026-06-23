@@ -2,7 +2,9 @@
 
 **Self-assessed score: 400 / 400** (excludes the reviewer-only "Overall Code Quality" 100 pts)
 
-**Deployed UI:** <!-- TODO: paste your deployed URL here after pushing, e.g. https://async-race.netlify.app -->
+**Deployed UI (Vercel):** https://async-race-xi.vercel.app/#/garage
+
+> ℹ️ The reviewer runs the [mock server](https://github.com/mikhama/async-race-api) locally on `http://localhost:3000`. This deployed app points there by default, so it talks to your local backend out of the box — nothing to configure.
 
 A single-page application to manage a collection of cars, control their engines, run drag races and track winners. Built against the [mikhama/async-race-api](https://github.com/mikhama/async-race-api) mock server.
 
@@ -60,18 +62,19 @@ The API base URL defaults to `http://localhost:3000` and can be overridden with 
 
 `vite.config.ts` uses `base: './'` (relative asset paths) and the app uses `HashRouter`, so the same `dist/` build works on GitHub Pages, Netlify, Vercel and Cloudflare Pages with no extra config.
 
+- **Vercel (used here):** import the repo — Vite is auto-detected. Build command `npm run build`, output directory `dist`. **Leave `VITE_API_BASE_URL` unset** so the app keeps targeting the reviewer's local `http://localhost:3000` backend.
 - **GitHub Pages:** a workflow at `.github/workflows/deploy.yml` builds and deploys on every push to `main`. Enable Pages → Source: *GitHub Actions*.
-- **Netlify / Vercel:** build command `npm run build`, publish directory `dist`. (Netlify: you can also drag-and-drop the `dist/` folder.)
+- **Netlify:** build command `npm run build`, publish directory `dist` (or drag-and-drop the `dist/` folder).
 
 After deploying, paste the live URL at the top of this file.
 
 ---
 
-## Checklist ___/400 pts
+## Checklist 400/400 pts
 
 ### 🚀 UI Deployment
 
-- [x] **Deployment Platform** — relative-base build + HashRouter; Pages workflow included (add live link above after pushing).
+- [x] **Deployment Platform** — deployed on Vercel; relative-base build + HashRouter (paste the live link at the top).
 
 ### ✅ Requirements to Commits and Repository
 

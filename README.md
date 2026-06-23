@@ -1,5 +1,7 @@
 # 🏁 Async Race
 
+[![CI](https://github.com/LadoAsambadze/async-race/actions/workflows/ci.yml/badge.svg)](https://github.com/LadoAsambadze/async-race/actions/workflows/ci.yml)
+
 **Self-assessed score: 400 / 400** (excludes the reviewer-only "Overall Code Quality" 100 pts)
 
 **Deployed UI (Vercel):** https://async-race-xi.vercel.app/#/garage

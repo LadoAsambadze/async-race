@@ -1,9 +1,12 @@
 import { baseApi } from './baseApi';
+import { ENGINE_STATUS } from '../constants';
 import type { EngineResponse } from '../types';
+
+type ToggleStatus = typeof ENGINE_STATUS.STARTED | typeof ENGINE_STATUS.STOPPED;
 
 interface ToggleEngineArgs {
   id: number;
-  status: 'started' | 'stopped';
+  status: ToggleStatus;
 }
 
 interface DriveResponse {
@@ -20,7 +23,7 @@ export const engineApi = baseApi.injectEndpoints({
     }),
     drive: builder.mutation<DriveResponse, number>({
       query: (id) => ({
-        url: `/engine?id=${id}&status=drive`,
+        url: `/engine?id=${id}&status=${ENGINE_STATUS.DRIVE}`,
         method: 'PATCH',
       }),
     }),

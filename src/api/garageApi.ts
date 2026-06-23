@@ -1,16 +1,12 @@
 import type { FetchBaseQueryMeta } from '@reduxjs/toolkit/query';
 import { baseApi } from './baseApi';
+import { readTotalCount } from './totalCount';
 import type { Car, CarDraft, PaginatedResult } from '../types';
-
-const TOTAL_COUNT_HEADER = 'X-Total-Count';
 
 interface GetCarsArgs {
   page: number;
   limit: number;
 }
-
-const readTotalCount = (meta: FetchBaseQueryMeta | undefined): number =>
-  Number(meta?.response?.headers.get(TOTAL_COUNT_HEADER) ?? 0);
 
 export const garageApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
@@ -21,9 +17,6 @@ export const garageApi = baseApi.injectEndpoints({
         totalCount: readTotalCount(meta),
       }),
       providesTags: ['Car'],
-    }),
-    getCar: builder.query<Car, number>({
-      query: (id) => `/garage/${id}`,
     }),
     createCar: builder.mutation<Car, CarDraft>({
       query: (body) => ({ url: '/garage', method: 'POST', body }),

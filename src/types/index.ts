@@ -25,8 +25,6 @@ export interface EngineResponse {
   distance: number;
 }
 
-export type EngineStatus = 'started' | 'stopped' | 'drive';
-
 export type CarRunState = 'idle' | 'starting' | 'driving' | 'finished' | 'broken';
 
 export interface PaginatedResult<T> {

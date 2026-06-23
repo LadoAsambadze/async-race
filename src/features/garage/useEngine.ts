@@ -2,6 +2,7 @@ import { useCallback, useState } from 'react';
 import { useDriveMutation, useToggleEngineMutation } from '../../api/engineApi';
 import { useTrackAnimation } from './useTrackAnimation';
 import { durationFromEngine, msToSeconds } from '../../utils/helpers';
+import { ENGINE_STATUS } from '../../constants';
 import type { Car, CarRunState, RaceResult } from '../../types';
 
 interface UseEngineResult {
@@ -22,7 +23,7 @@ export const useEngine = (car: Car): UseEngineResult => {
     setRunState('starting');
     let engine;
     try {
-      engine = await toggleEngine({ id: car.id, status: 'started' }).unwrap();
+      engine = await toggleEngine({ id: car.id, status: ENGINE_STATUS.STARTED }).unwrap();
     } catch (error) {
       setRunState('idle');
       throw error;
@@ -44,7 +45,7 @@ export const useEngine = (car: Car): UseEngineResult => {
 
   const stop = useCallback(async (): Promise<void> => {
     freeze();
-    await toggleEngine({ id: car.id, status: 'stopped' }).unwrap();
+    await toggleEngine({ id: car.id, status: ENGINE_STATUS.STOPPED }).unwrap();
     reset();
     setRunState('idle');
   }, [car.id, freeze, reset, toggleEngine]);

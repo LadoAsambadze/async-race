@@ -1,5 +1,6 @@
 import type { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 import { baseApi } from './baseApi';
+import { readTotalCount } from './totalCount';
 import { FALLBACK_CAR_COLOR } from '../constants';
 import type {
   Car,
@@ -9,8 +10,6 @@ import type {
   WinnersSortField,
   WinnerView,
 } from '../types';
-
-const TOTAL_COUNT_HEADER = 'X-Total-Count';
 
 type CarFetcher = (id: number) => Promise<{ data?: unknown; error?: FetchBaseQueryError }>;
 
@@ -42,7 +41,7 @@ export const winnersApi = baseApi.injectEndpoints({
         const result = await baseQuery(url);
         if (result.error) return { error: result.error };
         const winners = result.data as Winner[];
-        const totalCount = Number(result.meta?.response?.headers.get(TOTAL_COUNT_HEADER) ?? 0);
+        const totalCount = readTotalCount(result.meta);
         const data = await enrichWinners(winners, async (id) => baseQuery(`/garage/${id}`));
         return { data: { data, totalCount } };
       },

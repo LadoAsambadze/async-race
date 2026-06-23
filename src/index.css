@@ -39,7 +39,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ---------- Top bar ---------- */
 .topbar {
   display: flex;
   flex-wrap: wrap;
@@ -133,7 +132,6 @@ body {
   text-shadow: 0 0 10px var(--cyan);
 }
 
-/* ---------- Layout ---------- */
 .container {
   max-width: 1100px;
   margin: 0 auto;
@@ -148,7 +146,6 @@ body {
   margin: 6px 0 18px;
 }
 
-/* ---------- Control bar & forms ---------- */
 .control-bar {
   display: flex;
   flex-wrap: wrap;
@@ -198,7 +195,6 @@ body {
   box-shadow: 0 0 8px rgba(255, 68, 224, 0.4);
 }
 
-/* ---------- Buttons (neon) ---------- */
 .btn {
   --c: 45, 226, 230;
   font-family: inherit;
@@ -270,7 +266,6 @@ body {
   font-size: 0.8rem;
 }
 
-/* ---------- Garage list & track ---------- */
 .garage-list {
   display: flex;
   flex-direction: column;
@@ -381,7 +376,6 @@ body {
   font-size: 1.1rem;
 }
 
-/* ---------- Pagination ---------- */
 .pagination {
   display: flex;
   align-items: center;
@@ -404,7 +398,6 @@ body {
   letter-spacing: 1px;
 }
 
-/* ---------- Winners table ---------- */
 .winners-table {
   width: 100%;
   border-collapse: collapse;
@@ -441,7 +434,6 @@ body {
   text-shadow: 0 0 6px rgba(45, 226, 230, 0.5);
 }
 
-/* ---------- Winner banner ---------- */
 .banner {
   position: fixed;
   inset: 0;
@@ -477,7 +469,6 @@ body {
   letter-spacing: 1px;
 }
 
-/* ---------- Responsive (down to 500px) ---------- */
 @media (max-width: 500px) {
   .container {
     padding: 10px;

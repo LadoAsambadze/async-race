@@ -11,11 +11,14 @@ export const DEFAULT_CAR_COLOR = '#3b82f6';
 export const FALLBACK_CAR_COLOR = '#999999';
 
 export const FIRST_PAGE = 1;
-export const PERCENT_MAX = 100;
 export const MS_PER_SECOND = 1000;
 export const TIME_DECIMALS = 2;
 
-export const ENGINE_BROKE_STATUS = 500;
+export const ENGINE_STATUS = {
+  STARTED: 'started',
+  STOPPED: 'stopped',
+  DRIVE: 'drive',
+} as const;
 
 export const CAR_BRANDS = [
   'Tesla',
